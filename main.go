@@ -26,11 +26,11 @@ func main() {
 	isPending := true
 	for isPending == true {
 		if outputString == "REVIEW_REQUIRED\n" {
-			fmt.Println(Yellow + outputString + Reset)
+			fmt.Print(Yellow+"REVIEW_REQUIRED"+Reset+" ", time.Now().Format(time.DateTime), "\n")
 		} else {
 			fmt.Println(Green + outputString + Reset)
 			isPending = false
 		}
-		time.Sleep(1 * time.Second)
+		time.Sleep(3 * time.Second)
 	}
 }
