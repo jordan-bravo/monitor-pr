@@ -23,9 +23,14 @@ func main() {
 		os.Stderr.WriteString(err.Error())
 	}
 	outputString := string(output)
-	if outputString == "REVIEW_REQUIRED\n" {
-		fmt.Println(Yellow + outputString + Reset)
-	} else {
-		fmt.Println(Green + outputString + Reset)
+	isPending := true
+	for isPending == true {
+		if outputString == "REVIEW_REQUIRED\n" {
+			fmt.Print(Yellow+"REVIEW_REQUIRED"+Reset+" ", time.Now().Format(time.DateTime), "\n")
+		} else {
+			fmt.Println(Green + outputString + Reset)
+			isPending = false
+		}
+		time.Sleep(3 * time.Second)
 	}
 }
